@@ -1,3 +1,10 @@
+//
+//  SecureQueryItemTests.swift
+//  SecureQueryItem
+//
+//  Created by SunSoo Jeon on 22.08.2024.
+//
+
 import XCTest
 @testable import SecureQueryItem
 
