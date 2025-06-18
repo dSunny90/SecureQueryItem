@@ -1,11 +1,18 @@
+//
+//  SecureQueryItemTests.swift
+//  SecureQueryItem
+//
+//  Created by SunSoo Jeon on 22.08.2024.
+//
+
 import XCTest
 @testable import SecureQueryItem
 
 fileprivate class MockCryptoModule: CryptoProvider {
     private var encryptedText: String?
 
-    func encrypt(_ plainText: String) {
-        encryptedText = "encrypted(\(plainText))"
+    func encrypt(_ plaintext: String) {
+        encryptedText = "encrypted(\(plaintext))"
     }
 
     func getSecureText() -> String {
@@ -16,8 +23,8 @@ fileprivate class MockCryptoModule: CryptoProvider {
         encryptedText = nil
     }
 
-    func decrypt(_ cipherText: String) -> String {
-        return "decrypted(\(cipherText))"
+    func decrypt(_ ciphertext: String) -> String {
+        return "decrypted(\(ciphertext))"
     }
 }
 

@@ -28,9 +28,9 @@ import Foundation
 ///
 ///    private init() {}
 ///
-///    func encrypt(_ plainText: String) {
+///    func encrypt(_ plaintext: String) {
 ///        // C-style: use cString + withUnsafeMutableBufferPointer
-///        // Swift-style: pass plainText to Swift crypto
+///        // Swift-style: pass plaintext to Swift crypto
 ///    }
 ///
 ///    func getSecureText() -> String {
@@ -43,7 +43,7 @@ import Foundation
 ///        // Swift-style: clear string or set to nil
 ///    }
 ///
-///    func decrypt(_ cipherText: String) -> String {
+///    func decrypt(_ ciphertext: String) -> String {
 ///        // C-style: use cString + unsafe buffer pointer
 ///        // Swift-style: return decrypted string
 ///    }
@@ -51,15 +51,15 @@ import Foundation
 /// ```
 public protocol CryptoProvider {
     /// Encrypts the given plaintext and stores the encrypted result internally.
-    /// - Parameter plainText: The string to be encrypted.
-    func encrypt(_ plainText: String)
+    /// - Parameter plaintext: The string to be encrypted.
+    func encrypt(_ plaintext: String)
     /// Retrieves the most recently encrypted string.
     /// - Returns: The encrypted result as a string.
     func getSecureText() -> String
     /// Clears any internal encrypted state.
     func clear()
     /// Decrypts the given ciphertext and returns the plaintext.
-    /// - Parameter cipherText: The encrypted string.
+    /// - Parameter ciphertext: The encrypted string.
     /// - Returns: The decrypted plain text.
-    func decrypt(_ cipherText: String) -> String
+    func decrypt(_ ciphertext: String) -> String
 }

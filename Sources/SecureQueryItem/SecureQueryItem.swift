@@ -36,10 +36,10 @@ public struct SecureQueryItem: ExpressibleByDictionaryLiteral {
         query.mapValues { value in
             let queryItemValue: String
             switch value {
-            case .plain(let plainText):
-                queryItemValue = plainText
-            case .secure(let plainText):
-                cryptoProvider.encrypt(plainText)
+            case .plain(let plaintext):
+                queryItemValue = plaintext
+            case .secure(let plaintext):
+                cryptoProvider.encrypt(plaintext)
                 queryItemValue = cryptoProvider.getSecureText()
                 cryptoProvider.clear()
             }
