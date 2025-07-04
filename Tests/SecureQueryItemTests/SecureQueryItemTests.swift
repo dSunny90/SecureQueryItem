@@ -29,7 +29,7 @@ fileprivate class MockCryptoModule: CryptoProvider {
 }
 
 final class SecureQueryItemTests: XCTestCase {
-    func testOnlyPlainText() {
+    func testOnlyPlainTextStringLiteral() {
         let query: SecureQueryItem = [
             "Alice": "I am Alice"
         ]
@@ -37,6 +37,17 @@ final class SecureQueryItemTests: XCTestCase {
         let result = query.encrypted(using: module)
 
         XCTAssertEqual(result["Alice"], "I am Alice")
+    }
+
+    func testOnlyPlainTextString() {
+        let aliceQuery: String = "Hellp, World!"
+        let query: SecureQueryItem = [
+            "Alice": aliceQuery.plaintext
+        ]
+        let module = MockCryptoModule()
+        let result = query.encrypted(using: module)
+
+        XCTAssertEqual(result["Alice"], "Hellp, World!")
     }
 
     func testOnlySecureText() {

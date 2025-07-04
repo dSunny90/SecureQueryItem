@@ -87,8 +87,10 @@ extension Dictionary where Key == String, Value == String {
     }
 }
 
-private extension String {
-    var urlEncoded: String? {
+extension String {
+    public var plaintext: SecureQueryItem.Text { .plain(self) }
+
+    fileprivate var urlEncoded: String? {
         self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
 }
